@@ -32,5 +32,27 @@ console.log(a.sort())
 console.log(a.sort().reverse())//sort an array and reverse the array 
 
 //2D Array
+//used Online compiler for prompt
+/*
+let r=+prompt()
+let c=+prompt()
 
- 
+const m=[]
+
+for(let i=0;i<r;i++){
+    var rm=[]
+    for(let j=0;j<c;j++){
+        let element=+prompt();
+        rm.push(element);
+    }
+    m.push(rm)
+}
+var rm=[]
+for(let i=0;i<r;i++){
+    let s=''
+    for(let j=0;j<c;j++){
+        s=s+m[i][j]+" "
+    }
+    console.log(s)
+}
+    */

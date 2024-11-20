@@ -16,11 +16,11 @@ for(let i in a){
     console.log(a[i])
 }
 //For of loop for pring all the elements of an array 
-/*
+//for of returns the element whereas for in returns idex of the element 
 for(let k of a){
-    console.log(a[k])
+    console.log(k)
 }
-  */
+  
 
 //For loop
 for(let j=0;j<a.length;j++){

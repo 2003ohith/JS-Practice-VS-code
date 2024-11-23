@@ -58,6 +58,7 @@ console.log(car.looks('Kia','250'))//if the method is Static so we use class nam
 
 */
 
+/*
 class car{
 
     static price=20000 //belongs to class car
@@ -82,3 +83,32 @@ class car{
 let o= new car("Nissan",1000000,"20000cc");
 console.log(o.performance("badest"))
 console.log(car.looks(o.model,o.c))//if u like to use the object parameter in static method we can use class.method(object.parameter)
+*/
+
+//Another example from Internet(bro code)
+class User{
+
+    static userCount = 0;
+
+    constructor(a){
+        this.username = a;
+        User.userCount++;
+    }
+
+    static getUserCount(){
+        console.log(`There are ${User.userCount} users online`);
+    }
+    sayHello(){
+        console.log(`Hello, my username is ${this.username}`);
+    }
+
+}
+
+const user1 = new User("Spongebob");
+const user2 = new User("Patrick");
+const user3 = new User("Sandy");
+
+User.getUserCount();
+user1.sayHello();
+user2.sayHello();
+user3.sayHello();

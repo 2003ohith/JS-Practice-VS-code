@@ -37,7 +37,7 @@ function a(b,c,d,f,g){
     this.salary=d,
     this.designation=f,
     this.behavior=g,
-    this.description=()=>{
+   this.description=()=>{
         return `${this.name} is a ${this.behavior} being`;
     }
 
@@ -91,3 +91,17 @@ for(key in o){
     console.log(`${key}-${o[key]}`)
 }
     */
+
+/*methods in object */
+
+let user={
+    name:'Kevin',
+    age:22,
+    display:function(){
+        return `my name is ${this.name} and my age is ${this.age}`
+    }
+
+}
+
+
+console.log(user.display())

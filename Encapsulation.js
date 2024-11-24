@@ -1,3 +1,4 @@
+//Encapsulation:bundling data and methods into a single unit This helps protect the object's internal state from being changed in ways that could break the program
 //Getters & Setters
 
 

@@ -57,3 +57,4 @@ for(let i of s){
 }
 
 s.clear()//delete all the elements in a set
+console.log(s)

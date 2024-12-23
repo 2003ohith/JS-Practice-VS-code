@@ -1,6 +1,8 @@
 /*callback hell- callback inside callback inside callback...(callback Chaining) is know as call back hell
                  makes the code more complex and Difficult to understand, In order to avoid this proises were introduced 
 */
+
+/*
 function walking(callback){
     
         setTimeout(()=>{
@@ -57,16 +59,16 @@ walking((message)=>{
     })
 })
 
-
+*/
 
 
 /*promises--> Its an object that handles asynchronous operation
               was used to avoid callback hell or to improvise callback chaining
-              syntax: eturn new promise((resolve, reject),()=>{Asynchronous function})
+              syntax: eturn new promise((resolve, reject)=>{Asynchronous function})
  */
 
 
-/*              
+/*          
 function alarm(t){
     return new Promise((resolve,reject)=>{
        
@@ -124,53 +126,74 @@ walking().then((message)=>{
 
 //Promise.all([walking(),cooking(),cleaning()]).then((m)=>{console.log(m)})
 
-/*
-
-
 function walking(){
     return new Promise((resolve,reject)=>{
         setTimeout(()=>{
             let a=true;
             if(a){
             resolve('U completed walking')
-            }else{
+            } else {
                 reject('U didnt do walking')
             }
-        },2000)
+        }, 2000)
     })
 }
 
-function cooking(){
-    return new Promise((resolve,reject)=>{
-        setTimeout(()=>{
-            let b=false;
-            if(b){
-            resolve('U completed cooking')
-            }else{
+function cooking() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            let b = false;
+            if (b) {
+                resolve('U completed cooking')
+            } else {
                 reject('U didnt do cooking')
             }
-        },1500)
+        }, 1500)
     })
 }
 
-function cleaning(){
-    return new Promise((resolve,reject)=>{
-        setTimeout(()=>{
-            let c=false;
-            if(c){
-            resolve('U completed cleaning')
-            }else{
+function cleaning() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            let c = false;
+            if (c) {
+                resolve('U completed cleaning')
+            } else {
                 reject('U didnt do cleaning')
             }
-        },3000)
+        }, 3000)
     })
 }
 
 //promises chaining
 
-walking().then((message)=>{
-    console.log(`walking: ${message}`);return cooking()
-}).catch(error=>{console.log(`walking: ${error}`)})
-.then((message)=>{console.log(`cooking: ${message}`);return cleaning()}).catch(error=>{console.log(`cooking: ${error}`)})
-.then((message)=>{console.log(`cleaning: ${message}`)}).catch((error)=>{console.log(`cleaning: ${error}`)})
-*/
+walking().then((message) => {
+    console.log(message); cooking().then((message) => {
+        console.log(message); cleaning().then((message) => {
+            console.log(message)
+        }).catch(error =>{console.log(error)})
+    }).catch(error => {console.log(error)})
+}).catch(error => { console.log(error)})
+
+/*
+walking().then((result) => {
+    console.log(result);
+    cooking().then((res) => {
+        console.log(res);
+        cleaning().then((res) => { console.log(res) }).catch(error => console.log(error))
+    }).catch(async (error) => {
+        console.log(error)
+        try {
+            const n = await cleaning()
+            console.log(n)
+        } catch (error) {
+            console.log(error)
+        }
+    })
+}).catch((error) => console.log(error))
+
+
+walking().then((result)=>{
+
+})
+    */

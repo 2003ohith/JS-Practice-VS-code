@@ -99,7 +99,7 @@ function cleaning() {
     //console.log(combinations);
      
      
-
+//working of setTimeout Function
     function hello(){
 
         setTimeout(()=>{
@@ -119,25 +119,74 @@ function cleaning() {
 
    // hello()
 
+// async & await with setTimeout and promise 
 
-    async function sum(a,b){
+    function sum(a,b){
+    return new Promise((resolve,reject)=> {
         setTimeout(()=>{
-            return(a+b)
-        },3000)
+       resolve (a+b)
+    },3000)})
+   }
+
+   function mul(c){
+    return new Promise((resolve,reject)=> {setTimeout(()=>{
+        resolve (c*100)
+     },2000)})
     }
 
-    async function multi(c){
-        setTimeout(()=>{
-            return(c*10)
-        },3000)
-    }
-    
-    
-    async function result(){
-        const res=await sum(20,30);
-        console.log(res)
-        const fin= await multi(res);
-        console.log(fin)
+   async function result(){
+    try{
+    const s= await sum(10,20)
+    console.log(s)
+
+    const m= await mul(s)
+    console.log(m)
+    }catch(e){
+        console.log(e)
+    }finally{
+        console.log(`Code Finished`)
     }
 
-   result()
+   }
+
+   //result()
+
+// fetch value from api call 
+    async function fetchData() {
+    const response =await fetch("https://jsonplaceholder.typicode.com/posts/1");
+    const data = await response.json();
+    console.log(data);
+  }
+ /* 
+ //know the await working order 
+ console.log('1')
+ console.log('booked')
+ fetchData();
+ console.log('2')
+ */
+
+
+ // A function to fetch data from an API using async & await with then and catch(promises)
+async function fetchData(url) {
+    try {
+      const response = await fetch(url); // Await the fetch promise
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const data = await response.json(); // Await the JSON parsing promise
+      return data; // Return the parsed data
+    } catch (error) {
+      return error; // Re-throw the error for the caller to handle
+    }
+  }
+
+  
+  const apiURL = 'https://jsonplaceholder.typicode.com/posts/999999'; // Example API URL ( valid api-https://jsonplaceholder.typicode.com/posts)
+  
+  fetchData(apiURL)
+    .then((data) => {
+      console.log('Fetched Data:', data); // Handle resolved promise
+    })
+    .catch((error) => {
+      console.error('Error in API call:', error); // Handle rejected promise
+    });
